@@ -19,10 +19,9 @@ app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-// Health check route
-app.get("/home", (req, res) => {
-  res.send("Server is running");
-});
+
+import userRoutes from "./routes/user.routes.js";
+app.use("/api/v1/user", userRoutes);
 
 connectDB();
 
